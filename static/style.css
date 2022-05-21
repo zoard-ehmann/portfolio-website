@@ -10,12 +10,12 @@ body {
   font-weight: 700;
 }
 
-.my-footer__link--white {
-  color: white;
+.my-footer__text--muted {
+  color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
 }
 
-.my-footer__link--white:hover {
-  color: #ffffff50;
-  transition-duration: 0.5s;
+a.my-footer__text--muted:hover {
+  color: rgba(255, 255, 255, 0.75);
+  transition-duration: 0.15s;
 }

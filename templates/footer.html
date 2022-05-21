@@ -2,15 +2,15 @@
   <div class="container">
     <div class="row text-center d-flex align-items-center">
       <div class="col-md-4 text-md-start mb-3">
-        <a class="d-block my-footer__link--white" href="{{ url_for('privacy_policy') }}">Privacy Policy</a>
-        <a class="d-block my-footer__link--white" href="{{ url_for('imprint') }}">Imprint</a>
+        <a class="d-block my-footer__text--muted" href="{{ url_for('privacy_policy') }}">Privacy Policy</a>
+        <a class="d-block my-footer__text--muted" href="{{ url_for('imprint') }}">Imprint</a>
       </div>
       <div class="col-md-4 mb-3">
-        <a class="my-footer__link--white ps-3 pe-3" href="https://www.linkedin.com/in/zoard-ehmann/"><i class="fa-brands fa-linkedin-in fa-3x"></i></a>
-        <a class="my-footer__link--white ps-3 pe-3" href="https://github.com/zoard-ehmann"><i class="fa-brands fa-github fa-3x"></i></a>
+        <a class="my-footer__text--muted ps-3 pe-3" href="https://www.linkedin.com/in/zoard-ehmann/"><i class="fa-brands fa-linkedin-in fa-3x"></i></a>
+        <a class="my-footer__text--muted ps-3 pe-3" href="https://github.com/zoard-ehmann"><i class="fa-brands fa-github fa-3x"></i></a>
       </div>
       <div class="col-md-4 text-md-end">
-        <p>© Zoárd Ehmann, {{ now.year }}</p>
+        <p class="my-footer__text--muted">© Zoárd Ehmann, {{ now.year }}</p>
       </div>
     </div>
   </div>
