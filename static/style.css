@@ -1,0 +1,21 @@
+body {
+  background-color: #002b7a;
+  background-image: linear-gradient(135deg, #002b7a 0%, #570061 100%);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.my-title--bold {
+  font-weight: 700;
+}
+
+.my-footer__link--white {
+  color: white;
+  text-decoration: none;
+}
+
+.my-footer__link--white:hover {
+  color: #ffffff50;
+  transition-duration: 0.5s;
+}
