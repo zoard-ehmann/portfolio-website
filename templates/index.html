@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Zoárd Ehmann - Web Development & Programming{% endblock %}
+
+{% block content %}
+
+<section class="mt-5">
+  <div class="row">
+    <div class="col-lg-7 text-center text-lg-start">
+      <h1 class="mb-4 display-4 my-title--bold">Web Development & Programming</h1>
+      <p class="lead mb-3">Hello! My name is Zoárd and this is my UI design, web development and programming portfolio. I started coding because of passion and I would like to share all the projects I developed so far.</p>
+      <a href="{{ url_for('contact') }}">
+        <button type="button" class="mb-3 btn btn-outline-light btn-lg">Get in touch!</button>
+      </a>
+    </div>
+    <div class="col d-flex align-items-center">
+      <img src="{{ url_for('static', filename='images/programmer_tools.jpg') }}" class="img-fluid rounded" alt="A Macbook with a code editor, a mouse and a watch">
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <h2 class="mb-4 display-5 text-center my-title--bold">My skills in the field of IT</h2>
+  <div class="row text-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card text-bg-dark mb-3">
+        <img src="{{ url_for('static', filename='images/wireframe.jpg') }}" class="img-fluid rounded-top" alt="Wireframe drawn by hand in a notebook.">
+        <div class="card-body">
+          <h3 class="card-title">UI Design</h3>
+          <p class="card-text">User interface design knowledge: HTML5, CSS3, Bootstrap, JavaScript and jQuery for an interactive and responsive website.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="card text-bg-dark mb-3">
+        <img src="{{ url_for('static', filename='images/development.jpg') }}" class="img-fluid rounded-top" alt="Laptop with pen and paper.">
+        <div class="card-body">
+          <h3 class="card-title">Web Development</h3>
+          <p class="card-text">Web development skills for full-stack web applications and complex website building with front-end and back-end.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card text-bg-dark mb-3">
+        <img src="{{ url_for('static', filename='images/programming.jpg') }}" class="img-fluid rounded-top" alt="Lines of code in a code editor.">
+        <div class="card-body">
+          <h3 class="card-title">Programming</h3>
+          <p class="card-text">Programming skills for building GUI desktop applications, smaller games, fully fledged websites and web applications.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <h2 class="mb-4 display-5 text-center my-title--bold">The goal of my website</h2>
+  <div class="row">
+    <div class="col-lg-5">
+      <img src="{{ url_for('static', filename='images/freelancer.jpg') }}" class="img-fluid rounded" alt="Laptop on a wooden desk with pen, paper, phone and coffee.">
+    </div>
+    <div class="col order-first order-lg-0 text-center text-lg-start">
+      <p class="lead mb-3">I believe the best way to express myself as a developer and showcase my portfolio is to have a personal website that I made from scratch. I tried to incorporate most of the UI design skills I have now to create a completely customized layout and style but with a content management system to sharpen my skills in the field of web development. I'm planning to keep this site updated as I go along the way and upload new contents regularly. I'm still actively learning though as this field is evolving day to day.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
