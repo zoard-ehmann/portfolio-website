@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<section class="mt-5 text-center">
+  <h1 class="display-4 my-main__title--bold">About</h1>
+</section>
+
+<section class="mt-5 text-center text-sm-start">
+  <img src="{{ url_for('static', filename='images/zoard.jpg') }}" alt="Profile picture of Zoárd." class="img-fluid rounded-circle float-none float-sm-end ms-sm-3 mb-3" width="200">
+  <p class="lead">My name is Zoárd and I live in Hungary in a pretty city with my beautiful girlfriend.</p>
+  <p class="lead">I always wanted to dive into the world of IT and I was lucky enough to fit in a team at one of the market leader IT companies where I was able to gain hands-on experience.</p>
+  <p class="lead">By now, I've successfully expanded my knowledge in the field of UI design, web development and programming by taking online courses from the most recognized instructors in the world.</p>
+  <p class="lead">I consider myself as a caring and open minded person who is precise and demanding for his work. My vision is to keep my code clean and organized to be efficient as possible by looking into all the details.</p>
+  <p class="lead">Other than that, I really like to be outdoors and spend my time in the nature thus I'm supporting environmental awareness. Sport is a part of my daily routine as well, it helps me to stay organized and fresh. Occasionally, I pick up my guitar and try to play some notes.</p>
+</section>
+
+{% endblock %}
