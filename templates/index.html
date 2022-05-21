@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Zoárd Ehmann - Web Development & Programming{% endblock %}
+{% block title %}Web Development & Programming{% endblock %}
 
 {% block content %}
 
 <section class="mt-5">
   <div class="row">
     <div class="col-lg-7 text-center text-lg-start">
-      <h1 class="mb-4 display-4 my-title--bold">Web Development & Programming</h1>
+      <h1 class="mb-4 display-4 my-main__title--bold">Web Development & Programming</h1>
       <p class="lead mb-3">Hello! My name is Zoárd and this is my UI design, web development and programming portfolio. I started coding because of passion and I would like to share all the projects I developed so far.</p>
       <a href="{{ url_for('contact') }}">
         <button type="button" class="mb-3 btn btn-outline-light btn-lg">Get in touch!</button>
@@ -19,7 +19,7 @@
 </section>
 
 <section class="mt-5">
-  <h2 class="mb-4 display-5 text-center my-title--bold">My skills in the field of IT</h2>
+  <h2 class="mb-4 display-5 text-center my-main__title--bold">My skills in the field of IT</h2>
   <div class="row text-center">
     <div class="col-md-6 col-lg-4">
       <div class="card text-bg-dark mb-3">
@@ -52,7 +52,7 @@
 </section>
 
 <section class="mt-5">
-  <h2 class="mb-4 display-5 text-center my-title--bold">The goal of my website</h2>
+  <h2 class="mb-4 display-5 text-center my-main__title--bold">The goal of my website</h2>
   <div class="row">
     <div class="col-lg-5">
       <img src="{{ url_for('static', filename='images/freelancer.jpg') }}" class="img-fluid rounded" alt="Laptop on a wooden desk with pen, paper, phone and coffee.">
