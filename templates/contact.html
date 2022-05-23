@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+
+{% macro render_field(field, cls) %}
+<div class="mb-3">
+  {{ field.label(class_="form-label") }}
+  {% if field.errors %}
+    {{ field(class_=cls + ' ' + 'is-invalid') }}
+    {% for error in field.errors %}
+      <div class="invalid-feedback">{{ error }}</p>
+    {% endfor %}
+  {% else %}
+    {{ field(class_=cls) }}
+  {% endif %}
+</div>
+{% endmacro %}
+
+{% block content %}
+
+<section class="mb-5 text-center">
+  <h1 class="display-4 my-main__title--bold">Contact</h1>
+</section>
+
+<section class="text-start">
+  <form action="{{ url_for('contact') }}" method="POST" novalidate>
+    {{ render_field(field=form.name, cls="form-control") }}
+    {{ render_field(field=form.email, cls="form-control") }}
+    {{ render_field(field=form.message, cls="form-control my-form__textarea") }}
+    <div class="progress mb-3">
+      <div id="my-progress-bar" class="progress-bar bg-danger" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="d-grid">
+      {{ form.submit(class_="btn btn-outline-light btn-lg") }}
+    </div>
+  </form>
+</section>
+
+{% endblock %}

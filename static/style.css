@@ -19,3 +19,7 @@ a.my-footer__text--muted:hover {
   color: rgba(255, 255, 255, 0.75);
   transition-duration: 0.15s;
 }
+
+.my-form__textarea {
+  height: 150px;
+}
