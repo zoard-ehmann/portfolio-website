@@ -7,7 +7,7 @@
   {% if field.errors %}
     {{ field(class_=cls + ' ' + 'is-invalid') }}
     {% for error in field.errors %}
-      <div class="invalid-feedback">{{ error }}</p>
+      <div class="invalid-feedback">{{ error }}</div>
     {% endfor %}
   {% else %}
     {{ field(class_=cls) }}
