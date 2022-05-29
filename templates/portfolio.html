@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+
+<section class="mb-5 text-center">
+  <h1 class="display-4 my-main__title--bold">Portfolio</h1>
+</section>
+
+<section class="text-start">
+  {% for work in works %}
+    <div class="accordion mb-4">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-heading{{ work.id }}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{ work.id }}" aria-expanded="true" aria-controls="panelsStayOpen-collapse{{ work.id }}">
+            {{ work.title }}
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapse{{ work.id }}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading{{ work.id }}">
+          <div class="accordion-body">
+            {{ work.description }}
+            <br />
+            <a href="{{ work.url }}"><button class="btn btn-dark mt-3">GitHub Code</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
