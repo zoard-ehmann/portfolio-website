@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Add Work{% endblock %}
+
+{% macro render_field(field, cls) %}
+<div class="mb-3">
+  {{ field.label(class_="form-label") }}
+  {% with messages = get_flashed_messages() %}
+    {% if field.errors %}
+      {{ field(class_=cls + ' ' + 'is-invalid') }}
+      {% for error in field.errors %}
+        <div class="invalid-feedback">{{ error }}</div>
+      {% endfor %}
+    {% elif messages %}
+      {{ field(class_=cls + ' ' + 'is-invalid') }}
+      {% for message in messages %}
+        <div class="invalid-feedback">{{ message }}</div>
+      {% endfor %}
+    {% else %}
+      {{ field(class_=cls) }}
+    {% endif %}
+  {% endwith %}
+</div>
+{% endmacro %}
+
+{% block content %}
+
+<section class="mb-5 text-center">
+  <h1 class="display-4 my-main__title--bold">Login</h1>
+</section>
+
+<section class="text-start">
+  <form action="{{ url_for('login') }}" method="POST" novalidate>
+    {{ form.csrf_token }}
+    {{ render_field(field=form.email, cls="form-control") }}
+    {{ render_field(field=form.password, cls="form-control") }}
+    <div class="d-grid">
+      {{ form.submit(class_="btn btn-outline-light btn-lg") }}
+    </div>
+  </form>
+</section>
+
+{% endblock %}
