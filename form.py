@@ -10,11 +10,11 @@ class ContactForm(FlaskForm):
     submit = SubmitField('Send')
 
 
-class AddPortfolioItem(FlaskForm):
+class PortfolioForm(FlaskForm):
     title = StringField('Title', validators=[InputRequired()], render_kw={'placeholder': 'Project Name'})
     description = TextAreaField('Description', validators=[InputRequired()], render_kw={'placeholder': 'Detailed description about the project...'})
     url = URLField('Code Repository', validators=[InputRequired(), URL(message='This is not a valid URL.')], render_kw={'placeholder': 'https://github.com/zoard-ehmann'})
-    submit = SubmitField('Add')
+    submit = SubmitField('Done')
 
 
 class AdminLogin(FlaskForm):

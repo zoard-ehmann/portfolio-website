@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_required, login_user, current_user
 from werkzeug.security import check_password_hash
 from dotenv import load_dotenv
-from form import ContactForm, AddPortfolioItem, AdminLogin
+from form import ContactForm, PortfolioForm, AdminLogin
 from mailer import Mailer
 
 
@@ -96,14 +96,14 @@ def login():
     form = AdminLogin()
 
     if current_user.is_authenticated:
-        return redirect(url_for('add'))
+        return redirect(url_for('portfolio'))
 
     if form.validate_on_submit():
         user = db.session.query(User).filter_by(email=form.email.data).first()
 
         if user and check_password_hash(pwhash=user.password, password=form.password.data):
             login_user(user)
-            return redirect(url_for('add'))
+            return redirect(url_for('portfolio'))
         flash('Invalid credentials, please try again.')
 
     return render_template('login.html', form=form)
@@ -112,7 +112,7 @@ def login():
 @app.route('/add', methods=['GET', 'POST'])
 @login_required
 def add():
-    form = AddPortfolioItem()
+    form = PortfolioForm()
 
     if form.validate_on_submit():
         new_work = Work(
@@ -122,9 +122,25 @@ def add():
         )
         db.session.add(new_work)
         db.session.commit()
-        return redirect('/portfolio')
+        return redirect(url_for('portfolio'))
 
-    return render_template('add.html', form=form)
+    return render_template('portfolio_item.html', form=form)
+
+
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit(id:int):
+    work = db.session.query(Work).get(id)
+    form = PortfolioForm(obj=work)
+
+    if form.validate_on_submit():
+        work.title = form.title.data
+        work.description = form.description.data
+        work.url = form.url.data
+        db.session.commit()
+        return redirect(url_for('portfolio'))
+
+    return render_template('portfolio_item.html', form=form)
 
 
 if __name__ == '__main__':

@@ -20,12 +20,25 @@
           <div class="accordion-body">
             {{ work.description }}
             <br />
-            <a href="{{ work.url }}"><button class="btn btn-dark mt-3">GitHub Code</button></a>
+            <div class="mt-3">
+              <a href="{{ work.url }}"><button class="btn btn-dark">Code</button></a>
+              {% if current_user.is_authenticated %}
+                <a href="{{ url_for('edit', id=work.id) }}"><button class="btn btn-secondary">Edit</button></a>
+                <a href="{{ work.url }}"><button class="btn btn-danger">Remove</button></a>
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
     </div>
   {% endfor %}
+  {% if current_user.is_authenticated %}
+    <a class="text-decoration-none" href="{{ url_for('add') }}">
+      <div class="d-grid">
+        <button class="btn btn-outline-light btn-lg">Add New</button>
+      </div>
+    </a>
+  {% endif %}
 </section>
 
 {% endblock %}

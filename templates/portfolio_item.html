@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Portfolio Item{% endblock %}
+
+{% macro render_field(field, cls) %}
+<div class="mb-3">
+  {{ field.label(class_="form-label") }}
+  {% if field.errors %}
+    {{ field(class_=cls + ' ' + 'is-invalid') }}
+    {% for error in field.errors %}
+      <div class="invalid-feedback">{{ error }}</div>
+    {% endfor %}
+  {% else %}
+    {{ field(class_=cls) }}
+  {% endif %}
+</div>
+{% endmacro %}
+
+{% block content %}
+
+<section class="mb-5 text-center">
+  <h1 class="display-4 my-main__title--bold">Portfolio Item</h1>
+</section>
+
+<section class="text-start">
+  {% if 'add' not in request.path %}
+    <form action="{{ url_for('edit', id=request.path.split('/')[-1]) }}" method="POST" novalidate>
+  {% else %}
+    <form action="{{ url_for('add') }}" method="POST" novalidate>
+  {% endif %}
+      {{ form.csrf_token }}
+      {{ render_field(field=form.title, cls="form-control") }}
+      {{ render_field(field=form.description, cls="form-control my-form__textarea") }}
+      {{ render_field(field=form.url, cls="form-control") }}
+      <div class="d-grid">
+        {{ form.submit(class_="btn btn-outline-light btn-lg") }}
+      </div>
+    </form>
+</section>
+
+{% endblock %}
