@@ -3,7 +3,7 @@ from datetime import datetime as dt
 
 from flask import Flask, flash, redirect, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_required, login_user, current_user
+from flask_login import LoginManager, UserMixin, login_required, login_user, current_user, logout_user
 from werkzeug.security import check_password_hash
 from dotenv import load_dotenv
 from form import ContactForm, PortfolioForm, AdminLogin
@@ -108,6 +108,12 @@ def login():
 
     return render_template('login.html', form=form)
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
 
 @app.route('/add', methods=['GET', 'POST'])
 @login_required
@@ -143,7 +149,7 @@ def edit(id:int):
     return render_template('portfolio_item.html', form=form)
 
 
-@app.route('/remove/<int:id>', methods=['GET'])
+@app.route('/remove/<int:id>')
 @login_required
 def remove(id:int):
     work = db.session.query(Work).get(id)
