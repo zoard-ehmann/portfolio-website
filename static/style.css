@@ -23,3 +23,13 @@ a.my-footer__text--muted:hover {
 .my-form__textarea {
   height: 150px;
 }
+
+.my-hyperlink__text {
+  color: white;
+  text-decoration: none;
+}
+
+.my-hyperlink__text:hover {
+  color: rgba(255, 255, 255, 0.75);
+  transition-duration: 0.15s;
+}

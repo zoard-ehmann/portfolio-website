@@ -83,12 +83,12 @@ def contact():
 
 @app.route('/privacy-policy')
 def privacy_policy():
-    pass
+    return render_template('privacy-policy.html')
 
 
 @app.route('/imprint')
 def imprint():
-    pass
+    return render_template('imprint.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
