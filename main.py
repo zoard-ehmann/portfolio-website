@@ -133,6 +133,7 @@ def edit(id:int):
     work = db.session.query(Work).get(id)
     form = PortfolioForm(obj=work)
 
+    # FIXME: duplicates shouldn't be allowed after edit
     if form.validate_on_submit():
         work.title = form.title.data
         work.description = form.description.data
@@ -142,6 +143,14 @@ def edit(id:int):
 
     return render_template('portfolio_item.html', form=form)
 
+
+@app.route('/remove/<int:id>', methods=['GET'])
+@login_required
+def remove(id:int):
+    work = db.session.query(Work).get(id)
+    db.session.delete(work)
+    db.session.commit()
+    return redirect(url_for('portfolio'))
 
 if __name__ == '__main__':
     db.create_all()
