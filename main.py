@@ -75,7 +75,12 @@ def contact():
     mailer = Mailer()
 
     if form.validate_on_submit():
-        mailer.send_mail(s_name=form.name.data, s_email=form.email.data, s_msg=form.message.data)
+        mailer.send_mail(
+            s_subj='From Zoárd\'s Site',
+            s_name=form.name.data,
+            s_email=form.email.data,
+            s_msg=form.message.data
+        )
         return render_template('contact.html', form=form, submitted=True)
 
     return render_template('contact.html', form=form, submitted=False)
